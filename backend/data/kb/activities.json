@@ -1,0 +1,468 @@
+{
+  "festivals": [
+    {
+      "name": "Bonhomie (Fuerza)",
+      "type": "Annual inter-collegiate festival",
+      "description": "The premier annual inter-collegiate festival at AIKTC that consolidates sports, cultural, and technical events into a week-long celebration. Organized by the Council of Students (COST), it draws wide participation across Mumbai and Navi Mumbai.",
+      "categories": {
+        "sports": [
+          "Cricket",
+          "Football",
+          "Volleyball"
+        ],
+        "cultural_creative": [
+          "Short Film Showcase (Film Club)",
+          "Vernacular Speech",
+          "Rangoli"
+        ],
+        "technical": [
+          "Code challenges",
+          "Robotics showcase",
+          "Technical paper presentations"
+        ]
+      },
+      "source_url": "https://aiktc.ac.in/social-activities/"
+    }
+  ],
+  "clubs": [
+    {
+      "name": "Programmers Club",
+      "department": "Department of Computer Engineering",
+      "description": "A student-driven tech community committed to promoting programming languages, building web/mobile...",
+      "activities": [
+        "Coding workshops & bootcamps",
+        "Open-source contribution guidance",
+        "Hosts the Algorithm Hackathon"
+      ],
+      "events": [
+        {
+          "name": "AIKTC Internal Hackathon - SIH 2024",
+          "date": "September 27, 2024"
+        },
+        {
+          "name": "AIKTC Hackathon",
+          "date": "September 15, 2023"
+        }
+      ],
+      "achievements": [
+        "First-place and runner-up positions at regional hackathons",
+        "Gold (1st Rank) in Hammer Throw Event at University of Mumbai Inter Collegiate Athletic Meet 2024-25 Mumbai City Zone (Women)"
+      ],
+      "source_url": "https://soet.aiktc.ac.in/"
+    },
+    {
+      "name": "DataNexus Club",
+      "department": "Department of CSE (Data Science)",
+      "description": "A specialized interest data science club focusing on Data Science, Big Data Engineering, and Arti...",
+      "activities": [
+        "Workshops on Power BI, Python, and Cloud services",
+        "Nexathon machine learning hackathon",
+        "Inauguration of S4DS & Data Nexus Club"
+      ],
+      "events": [
+        {
+          "name": "PowerBI competition",
+          "date": "February 26, 2026"
+        },
+        {
+          "name": "PowerBI Workshop \u2013 A Day of Data & Insights",
+          "date": "February 16, 2026"
+        }
+      ],
+      "achievements": [
+        "Amrut Patankar won 3rd Prize (\u20b91000) at the 'Battle of Pivot' Startup Pitching Competition held at Vasantdada Patil College.",
+        "Sana Zakir Shaikh, Talha Siddique and Amrut Patankar achieved first prize at the Technical Paper Presentation held at Pillai HOC College of Engineering & Technology (2026)."
+      ],
+      "source_url": "https://soet.aiktc.ac.in/school-of-engineering/computer-science-and-engineering-data-science/data-science-activities/"
+    },
+    {
+      "name": "e-Yantra Robotics Club",
+      "department": "All Engineering Departments",
+      "description": "Supported by the Ministry of Education (GoI) and IIT Bombay, the e-Yantra cell at AIKTC teaches s...",
+      "activities": [
+        "Hands-on robotics and IoT workshops",
+        "National EYRC competition prep"
+      ],
+      "events": [
+        {
+          "name": "Visit to IIT Bombay - e-Yantra Lab",
+          "date": "Recent"
+        },
+        {
+          "name": "Poster Presentation at e-Yantra Event",
+          "date": "March 26 & 27, 2026"
+        }
+      ],
+      "source_url": "https://soet.aiktc.ac.in/e-yantra-initiative-of-iit-bombay/"
+    },
+    {
+      "name": "Elite Club",
+      "department": "Department of Electronics & Computer Science (ECS)",
+      "description": "The departmental technical club for ECS engineering, focusing on promoting technology, hardware-s...",
+      "activities": [
+        "Hardware-software integration projects",
+        "Tech talks and community meetups",
+        "Hands on Workshop on Web Development (October 11, 2024)"
+      ],
+      "events": [
+        {
+          "name": "IIT Bombay E-Yantra Robotics Workshop Visit",
+          "date": "January 29, 2026"
+        },
+        {
+          "name": "Software Engineering & Web Technologies (Bootstrap and Server side Scripting)",
+          "date": "September 16, 2025"
+        }
+      ],
+      "achievements": [
+        "Final-year students Shaikh Sadiya Sarfaraz, Rinki Arvind Chaurasiya, Humera Khan Habib, and Hasiba Khan Sultan, under the guidance of Dr. Geeta Desai (Associate Professor), presented their paper 'Efficient Skin Health Diagnostics using YOLOv8 and YOLOv11' at the IEEE conference held at the Institution of Electronics and Telecommunication Engineers (IETE) Delhi Centre during July 26-27, 2025.",
+        "Third-year students won the consolation prize in the Hackathon for their project 'Water Management System - H2O Manager' at Saboo Siddiq College (October 20, 2024)."
+      ],
+      "internships": [
+        "Students completed training at Central Railway Carriage Workshop, Matunga (2023-24)"
+      ],
+      "source_url": "https://soet.aiktc.ac.in/school-of-engineering/electronics-and-computer-science/"
+    },
+    {
+      "name": "SAEINDIA Collegiate Club",
+      "department": "Department of Mechanical Engineering",
+      "description": "A professional collegiate club under SAE India, serving students interested in mobility engineeri...",
+      "activities": [
+        "Automotive design projects",
+        "Mobility engineering seminars"
+      ],
+      "source_url": "https://soet.aiktc.ac.in/school-of-engineering/mechanical-engineering/"
+    },
+    {
+      "name": "ACM Student Chapter (NeurOnyx Club)",
+      "department": "Department of Computer Engineering & AIML",
+      "description": "A technical student chapter affiliated with the Association for Computing Machinery (ACM), focusi...",
+      "activities": [
+        "Coding contests",
+        "Computer science research seminars",
+        "Peer mentoring programs"
+      ],
+      "events": [
+        {
+          "name": "Hacktoon 1.0",
+          "date": "March 28, 2026"
+        },
+        {
+          "name": "AI & VfX Tech Talk (Expert Session)",
+          "date": "March 10, 2026"
+        }
+      ],
+      "source_url": "https://soet.aiktc.ac.in/computer-science-and-engineering-aiml/"
+    },
+    {
+      "name": "IEI Student's Chapter (Electrical and Computer Engineering)",
+      "department": "Department of Electrical & Computer Engineering",
+      "description": "Student chapter under the Institution of Engineers (India), focused on electrical systems, smart ...",
+      "activities": [
+        "Workshops on Solar System Design",
+        "Expert talks on AutoCAD Panel design and Electrical safety",
+        "Simulation training for Electric Vehicles (EV) using Typhoon HIL"
+      ],
+      "events": [
+        {
+          "name": "Training on SLD and Panel Designing Session using AutoCAD",
+          "date": "October 10, 2025"
+        },
+        {
+          "name": "Expert Session on Wave Theory",
+          "date": "October 10, 2025"
+        }
+      ],
+      "source_url": "https://soet.aiktc.ac.in/school-of-engineering/electrical-and-computer-engineering/"
+    },
+    {
+      "name": "School of Architecture Student Activities & Co-curricular",
+      "department": "School of Architecture (B.Arch & D.Arch)",
+      "description": "Coordinates the creative, design, parents-teachers meets, orientation programs, study tours and a...",
+      "activities": [
+        "Hands-on design workshops (bamboo, concrete, metal, paper)",
+        "Study tours and heritage walks",
+        "Parents-teachers meets & orientations"
+      ],
+      "events": [
+        {
+          "name": "Heritage Walk \u2013 Zaveri Bazaar (D.Arch)",
+          "date": "September 11, 2025"
+        },
+        {
+          "name": "Onam Celebration 2025-26 (D.Arch)",
+          "date": "September 9, 2025"
+        }
+      ],
+      "source_url": "https://aiktc.ac.in/bachelor-of-architecture/events/"
+    },
+    {
+      "name": "School of Pharmacy Student Council & Placement Cell",
+      "department": "School of Pharmacy (B.Pharm & D.Pharm)",
+      "description": "Coordinates placement drives, industrial training, health camps, workshops, and inter-collegiate ...",
+      "activities": [
+        "TCS and Pharmeasy pool placement campus drives",
+        "Expert talks on regulatory perspectives, marketing, and pharmacology",
+        "Industrial visits to ACG Capsules, Nulife, Mayer Organics, etc."
+      ],
+      "events": [
+        {
+          "name": "TCS (BPS) Pool Campus Drive for B. Pharm Students",
+          "date": "March 23, 2026"
+        },
+        {
+          "name": "Pool Campus Drive of Pharmeasy-Thyrocare",
+          "date": "September 19, 2025"
+        }
+      ],
+      "achievements": [
+        "First Prize won by School of Pharmacy Students at the MSBTE State-Level Technical Paper Presentation Competition (September 20, 2025).",
+        "Consolation prize for Poster competition at UDAAN, DLLE Mumbai University (January 27, 2024)."
+      ],
+      "source_url": "https://aiktc.ac.in/bachelor-of-pharmacy/co-curricular-bpharm/"
+    },
+    {
+      "name": "Film Club",
+      "department": "School of Architecture",
+      "description": "Organizes short-filmmaking workshops, screenings, and visual production seminars.",
+      "activities": [
+        "Short-filmmaking workshops",
+        "Screenings & visual production seminars"
+      ]
+    },
+    {
+      "name": "Art Club",
+      "department": "School of Architecture",
+      "description": "Coordinates visual arts showcases, sketching competitions, and local crafts exhibitions.",
+      "activities": [
+        "Visual arts showcases",
+        "Sketching competitions",
+        "Local crafts exhibitions"
+      ]
+    },
+    {
+      "name": "Literature and Music Club",
+      "department": "School of Architecture",
+      "description": "Organizes open-mic debates, literature panels, and campus acoustic jam sessions.",
+      "activities": [
+        "Open-mic debates",
+        "Literature panels",
+        "Campus acoustic jam sessions"
+      ]
+    },
+    {
+      "name": "Theatre and Fashion Club",
+      "department": "School of Architecture",
+      "description": "Hosts street plays (Nukkad Natak), drama rehearsals, and styling sessions.",
+      "activities": [
+        "Street plays (Nukkad Natak)",
+        "Drama rehearsals",
+        "Styling sessions"
+      ],
+      "source_url": "https://aiktc.ac.in/social-activities/"
+    }
+  ],
+  "competitions": [
+    {
+      "name": "Algorithm Hackathon",
+      "type": "National-level hackathon",
+      "organizer": "Programmers Club",
+      "description": "A 32-hour continuous national hackathon where students code and solve industrial and social problem statements. E.g., Algorithm 8.0 (held in March 2024) and Algorithm 7.0 (held in March 2023)."
+    },
+    {
+      "name": "Nexathon",
+      "type": "Data science hackathon / Project-cum-Poster Competition",
+      "organizer": "DataNexus Club",
+      "description": "An intensive machine learning and analytical data hackathon challenging teams to develop predictive models from massive datasets. Flagship event held on October 18, 2025."
+    },
+    {
+      "name": "TechnoScope",
+      "type": "National-level project competition",
+      "organizer": "School of Engineering & Technology",
+      "description": "A national-level project competition for final-year engineering students to showcase their research, capstone engineering projects, and working models to industry judges."
+    },
+    {
+      "name": "TechSprint",
+      "type": "Virtual hackathon",
+      "organizer": "School of Engineering & Technology",
+      "description": "A fast-paced virtual hackathon challenging teams to build functional digital solutions within a tight deadline."
+    }
+  ],
+  "committees": [
+    {
+      "name": "Council of Students Committee (COST) / Student Council",
+      "description": "COST is the apex student body responsible for organizing campus fests, coordinating student feedback, and acting as the official liaison between students and campus management.",
+      "key_events": [
+        "Independence Day & Republic Day celebrations",
+        "Teachers' Day",
+        "Bonhomie Fest coordination"
+      ],
+      "events": [
+        {
+          "name": "Independence Day & Republic Day celebrations",
+          "date": "Annual"
+        },
+        {
+          "name": "Holi Celebration",
+          "date": "March 21 & 22, 2024"
+        },
+        {
+          "name": "National day (Teachers' Day / Engineer's Day)",
+          "date": "September 2023"
+        },
+        {
+          "name": "World Environment Day - Social Activity",
+          "date": "June 3-5, 2023"
+        },
+        {
+          "name": "Yoga Day - Cultural Activity",
+          "date": "June 21, 2023"
+        }
+      ]
+    },
+    {
+      "name": "Centre for Sports & Fitness (SFC)",
+      "description": "Manages gymkhana facilities, indoor and outdoor game spaces, coordinates athletic training, and represents the campus in University of Mumbai sports meets.",
+      "achievements": [
+        "Ms. Anam won the Best Fielder Award in Nari Shakti Chashak 2024 (Women Box Cricket).",
+        "Mr. Saqlain Adhikari won the District Cricket Championship (2024).",
+        "Yadav Snehlata Rajnish Prasad (1st Sem, Data Science) won Gold (1st Rank) in Hammer Throw Event at University of Mumbai Inter Collegiate Athletic Meet 2024-25 Mumbai City Zone (Women).",
+        "Yadav Snehlata Rajnish Prasad represented Mumbai City Zone in Inter Zonal Athletic Competition 2024-25 (University of Mumbai) and secured 4th Rank.",
+        "Iman Navdekar, Mrunal Bhosale, Yadav Snehlata, Sarosh Mapkar, Mahek Bagdadi won 3rd Rank in Naari Shakti Chashak 2024 Women Box Cricket Tournament (District Level).",
+        "Iman Navdekar, Mrunal Bhosale, Yadav Snehlata, Sarosh Mapkar, Mahek Bagdadi secured 6th Rank in University of Mumbai Mumbai City Zone Inter Collegiate Volleyball Tournament 2024-25 (Women).",
+        "Bagdadi Mahek and Siddiqui Khadija won 4th and 6th Rank in Javelin Throw Event (University of Mumbai Inter Collegiate Athletic Meet 2024-25 Mumbai City Zone (Women)).",
+        "Bagdadi Mahek secured 8th Rank in Shot Put Event (University of Mumbai Inter Collegiate Athletic Meet 2024-25 Mumbai City Zone (Women)).",
+        "Yadav Snehlata won 1st Place in Discus Throw and 1st Place in Shotput at AIKTC Inter-Department Sports Meet (February 5, 2025).",
+        "Bagdadi Mahek won 2nd Prize in Shotput at AIKTC Inter-Department Sports Meet (February 5, 2025).",
+        "Volleyball (Women) - 1st in Volleyball won by Mrunal Bhosale, Iman Navdekar, Javeriya Sayyed, Rida Dhanse, Muskan Qazi, Snehlata Yadav (AIKTC Inter-Department Sports Meet, February 2, 2025).",
+        "Throwball (Women) - 1st in Throwball won by Mrunal Bhosale, Iman Navdekar, Ammara Bandarkar, Snehlata Yadav, Javeriya Sayyed, Bushra Kazi, Mahek Bagdadi, Yamana Mahimkar (AIKTC Inter-Department Sports Meet, February 1, 2025).",
+        "Football (Women) - 1st in Football won by Mrunal Bhosale, Iman Navdekar, Binish Gandhi, Nashra Shaikh, Javeriya Sayyed, Snehlata Yadav (AIKTC Inter-Department Sports Meet, February 1, 2025).",
+        "Nakade Anas Aslam won 2nd prize in Pushups (AIKTC Inter-Department Sports Meet, February 5, 2025).",
+        "Khan Deshmukh Maryam Mohd Rafi won 2nd prize in Chess (AIKTC Inter-Department Sports Meet, February 6, 2025)."
+      ],
+      "events": [
+        {
+          "name": "AIKTC Inter-Department Sports Meet 2025",
+          "date": "February 1-6, 2025"
+        },
+        {
+          "name": "University of Mumbai Inter Collegiate Athletic Meet",
+          "date": "October 15-17, 2024"
+        },
+        {
+          "name": "Sports Activity Day",
+          "date": "September 4, 2023"
+        },
+        {
+          "name": "Sports Activity Day",
+          "date": "August 12, 2023"
+        }
+      ],
+      "source_url": "https://soet.aiktc.ac.in/aiktc-centres/sports-fitness-centre/"
+    },
+    {
+      "name": "Centre for NSS (National Service Scheme) and Extension Activities",
+      "description": "Promotes community development, blood donation drives, health camps, and hosts the NSS 7-Day Residential Camp.",
+      "events": [
+        {
+          "name": "NSS 7 days residential camp",
+          "date": "December 30, 2024 \u2013 January 5, 2025"
+        },
+        {
+          "name": "Guest Lecture on Eye Donation (Veer Sawarkar Death Anniversary Awareness)",
+          "date": "February 25, 2025"
+        },
+        {
+          "name": "Medical Health check-up camp",
+          "date": "October 25, 2024"
+        },
+        {
+          "name": "NSS Matdan jagrukta Abhiyan, Palaspe",
+          "date": "October 24, 2024"
+        },
+        {
+          "name": "Personal and women hygiene training at Anjuman-I-Islam AD BAWLA Girls home, Versova",
+          "date": "October 24, 2024"
+        },
+        {
+          "name": "Social and Cyber Security awareness Camp in Chhatrapati Shivaji school, Palaspe",
+          "date": "October 21, 2024"
+        },
+        {
+          "name": "Office ergonomics awareness on the occasion of World Spine Day",
+          "date": "October 16, 2024"
+        },
+        {
+          "name": "Diabetes Health Camp",
+          "date": "September 25, 2024"
+        },
+        {
+          "name": "Safai Apnao Bimari Bhagao Abhiyan- Clean cities healthy citizens",
+          "date": "August 31, 2024"
+        },
+        {
+          "name": "Tiranga Rally",
+          "date": "August 14, 2024"
+        },
+        {
+          "name": "Independence Day celebration in collaboration with the Youth Red Cross",
+          "date": "August 15, 2024"
+        }
+      ],
+      "source_url": "https://soet.aiktc.ac.in/aiktc-centres/centre-for-nss-and-extension-activities/"
+    },
+    {
+      "name": "Women Development and Grievance Cell (WDGC)",
+      "description": "Ensures gender parity, coordinates sensitization seminars, and addresses grievances.",
+      "events": [
+        {
+          "name": "Independence Day Celebration & Poster Making Competition",
+          "date": "August 17, 2022"
+        },
+        {
+          "name": "Workshop on Self Defence for Female Students & Faculty",
+          "date": "March 8, 2022"
+        },
+        {
+          "name": "Poster Making Competition on Equal Opportunities",
+          "date": "February 17, 2021"
+        }
+      ],
+      "source_url": "https://soet.aiktc.ac.in/aiktc-centres/women-development-and-grievance-cell/"
+    },
+    {
+      "name": "Student Grievance Redressal Committee (SGRC)",
+      "description": "Provides a formal channel for students to register grievances and request administrative reviews. Includes online application and form submission.",
+      "source_url": "https://soet.aiktc.ac.in/student-grievance-redressal-committee/"
+    },
+    {
+      "name": "Equal Opportunity Cell",
+      "description": "Promotes equality and inclusivity on campus, ensuring support and representation for students from all sections of society.",
+      "source_url": "https://soet.aiktc.ac.in/equal-opportunity-cell/"
+    },
+    {
+      "name": "Student Mentoring and Counselling Centre",
+      "description": "Focuses on the mental health, soft skills, and academic guidance of students through mentoring programs and workshops.",
+      "events": [
+        {
+          "name": "Workshop on Let's Re Treat",
+          "date": "2024-25"
+        },
+        {
+          "name": "RoadMap to GATE Competitive Exam Preparation",
+          "date": "2023-24"
+        },
+        {
+          "name": "Workshop on Goal Setting",
+          "date": "2022-23"
+        }
+      ],
+      "source_url": "https://soet.aiktc.ac.in/aiktc-centres/students-mentoring-and-counselling/"
+    },
+    {
+      "name": "Internal Complaints Committee (ICC)",
+      "description": "Responsible for preventing, prohibiting, and redressing sexual harassment of women at the campus, maintaining a safe workplace and academic environment.",
+      "source_url": "https://aiktc.ac.in/internal-complaints-committee/"
+    }
+  ]
+}
