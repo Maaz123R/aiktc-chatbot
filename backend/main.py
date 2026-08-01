@@ -64,11 +64,13 @@ async def lifespan(app: FastAPI):
     logger.info("  AIKTC AI Chatbot — Starting Up")
     logger.info("=" * 60)
 
-    # Validate Gemini API key
+    # Environment / settings diagnostics
+    logger.info(f"settings.gemini_api_key loaded: {bool(settings.gemini_api_key)}")
+    logger.info(f"os.getenv('GEMINI_API_KEY') loaded: {bool(os.getenv('GEMINI_API_KEY'))}")
+
     if not settings.gemini_api_key:
         logger.error(
-            "GEMINI_API_KEY is not set! "
-            "Add it to your .env file and restart."
+            "GEMINI_API_KEY is not set! Add it to your .env file and restart."
         )
 
     # Initialize database
@@ -87,9 +89,7 @@ async def lifespan(app: FastAPI):
         merged = load_and_merge_kb(kb_path)
         app.state.kb_markdown = kb_to_markdown(merged)
         logger.info(
-            f"Knowledge base loaded | "
-            f"size={len(app.state.kb_markdown)} chars | "
-            f"path={kb_path}"
+            f"Knowledge base loaded | size={len(app.state.kb_markdown)} chars | path={kb_path}"
         )
     except Exception as e:
         logger.error(f"Knowledge base loading failed: {e}")
