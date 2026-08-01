@@ -290,5 +290,17 @@
         "reason": "",
         "comment": "",
         "created_at": "2026-07-30T12:39:30.035995"
+    },
+    {
+        "id": 26,
+        "session_id": "349597c4-1031-42f8-be98-d8244958aafb",
+        "chat_id": "",
+        "message_id": "1",
+        "question": "What courses are offered",
+        "answer": "",
+        "rating": "helpful",
+        "reason": "",
+        "comment": "",
+        "created_at": "2026-07-31T03:07:42.743444"
     }
 ]

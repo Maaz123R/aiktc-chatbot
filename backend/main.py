@@ -65,8 +65,7 @@ async def lifespan(app: FastAPI):
     logger.info("=" * 60)
 
     # Environment / settings diagnostics
-    logger.info(f"settings.gemini_api_key loaded: {bool(settings.gemini_api_key)}")
-    logger.info(f"os.getenv('GEMINI_API_KEY') loaded: {bool(os.getenv('GEMINI_API_KEY'))}")
+
 
     if not settings.gemini_api_key:
         logger.error(

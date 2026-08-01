@@ -88,15 +88,18 @@ setMessages(prev => [
     try {
       await sendChatMessage(sessionId, text, (chunk) => {
        
-        if (chunk.type === 'function_call') {
-          botMessage.functionName = chunk.name;
-          botMessage.args = chunk.args;
-          botMessage.content = ''; // clear any text
-          setMessages(prev => [...prev.slice(0, -1), { ...botMessage }]);
-        } else if (chunk.type === 'text_chunk') {
-          botMessage.content += chunk.content;
-          setMessages(prev => [...prev.slice(0, -1), { ...botMessage }]);
-        }
+        if (chunk.type === "function_call") {
+    botMessage.functionName = chunk.name;
+    botMessage.args = chunk.args;
+
+    if (chunk.name === "show_text") {
+        botMessage.content = chunk.args.message;
+    } else {
+        botMessage.content = "";
+    }
+
+    setMessages(prev => [...prev.slice(0, -1), { ...botMessage }]);
+}
       });
     } catch (err) {
       console.error('Chat error:', err);

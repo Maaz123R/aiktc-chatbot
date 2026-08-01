@@ -6,7 +6,30 @@ import { LangContext } from "../context/LangContext";
 export default function BotMessage({ content, functionName, args }) {
   const { lang } = useContext(LangContext);
 
-  // Function responses (cards, tables, etc.)
+  // 👇 NEW: Handle normal AI text
+  if (functionName === "show_text") {
+    return (
+      <div
+        style={{
+          alignSelf: "flex-start",
+          maxWidth: "90%",
+          background: "#ffffff",
+          borderRadius: 16,
+          padding: 16,
+          boxShadow: "0 2px 10px rgba(0,0,0,.08)",
+          color: "#111827",
+          marginBottom: 10,
+        }}
+      >
+        <TextBubble
+          data={{ message: args?.message || content }}
+          lang={lang}
+        />
+      </div>
+    );
+  }
+
+  // Other function responses (cards, tables, etc.)
   if (functionName) {
     return (
       <div
@@ -29,7 +52,7 @@ export default function BotMessage({ content, functionName, args }) {
     );
   }
 
-  // Normal text responses
+  // Plain text responses
   return (
     <div
       style={{
