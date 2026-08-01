@@ -32,7 +32,7 @@ class Settings(BaseSettings):
     rate_limit_per_minute: int = 60
 
     # Demo mode (returns canned responses without Gemini)
-    demo_mode: bool = True
+    demo_mode: bool = False
 
     @property
     def resolved_kb_path(self) -> Path:
