@@ -74,10 +74,11 @@ const clearAllChats = () => {
 };
 
 const botMessage = {
-    role: "assistant",
-    content: "",
-    functionName: null,
-    args: null,
+  role: "assistant",
+  content: "",
+  functionName: null,
+  args: null,
+  completed: false,
 };
 
 setMessages(prev => [
@@ -99,6 +100,7 @@ setMessages(prev => [
         botMessage.content = "";
     }
 
+    botMessage.completed = true;
     setMessages(prev => [...prev.slice(0, -1), { ...botMessage }]);
 }
       });
