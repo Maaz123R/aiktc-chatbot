@@ -11,9 +11,12 @@ export default function BotMessage({ content, functionName, args }) {
       style={{
         alignSelf: "flex-start",
         maxWidth: "90%",
-        background: "#fff",
+        background: "#ffffff",
         borderRadius: 16,
         padding: 16,
+        boxShadow: "0 2px 10px rgba(0,0,0,.08)",
+        color: "#111827",
+        marginBottom: 10,
       }}
     >
       <TextBubble
