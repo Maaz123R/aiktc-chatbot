@@ -1,7 +1,9 @@
 import TextBubble from "./renderers/TextBubble";
 
 export default function BotMessage({ content, functionName, args }) {
-  console.log("BotMessage:", { content, functionName, args });
+ console.log("BotMessage content =", content);
+console.log("BotMessage functionName =", functionName);
+console.log("BotMessage args =", JSON.stringify(args, null, 2));
 
   return (
     <div
