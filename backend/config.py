@@ -22,12 +22,6 @@ class Settings(BaseSettings):
 
     # KB
     kb_path: str = "data/kb"
-
-    # Admin
-    admin_user: str = "admin"
-    admin_pass: str = "admin123"
-    kb_reload_token: str = "secret-token"
-
     # Rate limiting
     rate_limit_per_minute: int = 60
 
