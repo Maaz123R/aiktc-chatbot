@@ -22,6 +22,12 @@ class Settings(BaseSettings):
 
     # KB
     kb_path: str = "data/kb"
+
+    # Admin
+    admin_user: str = os.getenv("ADMIN_USER", "admin")
+    admin_pass: str = os.getenv("ADMIN_PASS", "admin123")
+    kb_reload_token: str = os.getenv("KB_RELOAD_TOKEN", "my-secret-token")
+
     # Rate limiting
     rate_limit_per_minute: int = 60
 
