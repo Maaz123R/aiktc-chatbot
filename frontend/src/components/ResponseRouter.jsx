@@ -25,5 +25,12 @@ const RENDERERS = {
 export default function ResponseRouter({ functionName, args, lang }) {
   const key = functionName?.replace(/^show_/, "") || "text";
   const Renderer = RENDERERS[key] || TextBubble;
+  console.log("ResponseRouter:", {
+  functionName,
+  key,
+  Renderer: Renderer?.name,
+  args,
+});
+
   return <Renderer data={args} lang={lang} />;
 }
