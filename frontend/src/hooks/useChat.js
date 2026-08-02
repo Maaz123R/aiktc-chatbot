@@ -66,17 +66,18 @@ const clearAllChats = () => {
 
   const sendMessage = useCallback(async (text) => {
     if (!text.trim()) return;
+    setLoading(true);
     
     const userMessage = {
   role: "user",
   content: text,
 };
 
-let botMessage = {
-  role: "assistant",
-  content: "",
-  functionName: null,
-  args: null,
+const botMessage = {
+    role: "assistant",
+    content: "",
+    functionName: null,
+    args: null,
 };
 
 setMessages(prev => [
@@ -87,7 +88,7 @@ setMessages(prev => [
 
     try {
       await sendChatMessage(sessionId, text, (chunk) => {
-       
+       console.log("CHUNK RECEIVED:", chunk);   // <-- ADD THIS
         if (chunk.type === "function_call") {
     botMessage.functionName = chunk.name;
     botMessage.args = chunk.args;
@@ -121,42 +122,44 @@ setMessages(prev => [
       };
       setMessages(prev => [...prev.slice(0, -1), { ...botMessage }]);
     } finally {
-  setLoading(false);
+    setLoading(false);
 
-  const updatedMessages = [
-    ...messages,
-    {
-        ...userMessage,
-    },
-    {
-        ...botMessage,
-    },
-];
-const title =
-    currentChatId
-        ? history.find(c => c.id === currentChatId)?.title || text
-        : (text.length > 30
-            ? text.substring(0, 30) + "..."
-            : text);
-const chatId = currentChatId ?? Date.now();
+    setMessages(prev => {
 
-const chat = {
-    id: chatId,
-    title,
-    messages: updatedMessages,
-    timestamp: new Date().toLocaleString(),
-};
+        const updatedMessages = [
+            ...prev.slice(0, -1),
+            { ...botMessage }
+        ];
 
-if (currentChatId === null) {
-    addChat(chat);
-    setCurrentChatId(chatId);
-} else {
-    updateChat(chat);
-}
+        const title =
+            currentChatId
+                ? history.find(c => c.id === currentChatId)?.title || text
+                : (text.length > 30
+                    ? text.substring(0, 30) + "..."
+                    : text);
 
-setHistory(getChats());
+        const chatId = currentChatId ?? Date.now();
+
+        const chat = {
+            id: chatId,
+            title,
+            messages: updatedMessages,
+            timestamp: new Date().toLocaleString(),
+        };
+
+        if (currentChatId === null) {
+            addChat(chat);
+            setCurrentChatId(chatId);
+        } else {
+            updateChat(chat);
+        }
+
+        setHistory(getChats());
+
+        return updatedMessages;
+    });
   }
-}, [sessionId, messages]);
+}, [sessionId, currentChatId, history]);
 
 return {
   messages,
