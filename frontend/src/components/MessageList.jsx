@@ -2,8 +2,17 @@ import UserBubble from "./UserBubble";
 import BotMessage from "./BotMessage";
 import TypingIndicator from "./TypingIndicator";
 import FeedbackBar from "./FeedbackBar";
+import { useEffect, useRef } from "react";
 
 export default function MessageList({ messages, loading }) {
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    if (containerRef.current) {
+      containerRef.current.scrollTop = containerRef.current.scrollHeight;
+    }
+  }, [messages]);
+
   return (
 <div
   style={{
@@ -24,6 +33,7 @@ export default function MessageList({ messages, loading }) {
       />
     );
   }
+  <div ref={containerRef} />
 
   // Previous user message
   const previousUser = [...messages]

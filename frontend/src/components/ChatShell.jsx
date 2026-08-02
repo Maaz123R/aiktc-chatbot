@@ -22,7 +22,8 @@ export default function ChatShell() {
         width: "100%",
         margin: "2rem auto",
         borderRadius: 20,
-        overflow: "hidden",
+       overflowY: "scroll",
+scrollbarWidth: "thin",
         boxShadow: "0 10px 30px rgba(0,0,0,.15)",
         background: "#fff",
         display: "flex",
@@ -111,10 +112,10 @@ export default function ChatShell() {
             </div>
           </div>
 
-          <a
-            href="/api/admin/dashboard"
-            target="_blank"
-            rel="noopener noreferrer"
+        <a
+  href={`${import.meta.env.VITE_API_URL}/api/admin/dashboard`}
+  target="_blank"
+  rel="noopener noreferrer"
             style={{
               width: 48,
               height: 48,
