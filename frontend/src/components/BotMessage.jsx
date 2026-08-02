@@ -4,31 +4,26 @@ import { useContext } from "react";
 import { LangContext } from "../context/LangContext";
 
 export default function BotMessage({ content, functionName, args }) {
-  const { lang } = useContext(LangContext);
+  console.log("BotMessage:", { content, functionName, args });
 
-  // 👇 NEW: Handle normal AI text
-  if (functionName === "show_text") {
-    return (
-      <div
-        style={{
-          alignSelf: "flex-start",
-          maxWidth: "90%",
-          background: "#ffffff",
-          borderRadius: 16,
-          padding: 16,
-          boxShadow: "0 2px 10px rgba(0,0,0,.08)",
-          color: "#111827",
-          marginBottom: 10,
+  return (
+    <div
+      style={{
+        alignSelf: "flex-start",
+        maxWidth: "90%",
+        background: "#fff",
+        borderRadius: 16,
+        padding: 16,
+      }}
+    >
+      <TextBubble
+        data={{
+          message: args?.message || content || "NO MESSAGE RECEIVED",
         }}
-      >
-        <TextBubble
-          data={{ message: args?.message || content }}
-          lang={lang}
-        />
-      </div>
-    );
-  }
-
+      />
+    </div>
+  );
+}
   // Other function responses (cards, tables, etc.)
   if (functionName) {
     return (
@@ -72,4 +67,3 @@ export default function BotMessage({ content, functionName, args }) {
       />
     </div>
   );
-}
