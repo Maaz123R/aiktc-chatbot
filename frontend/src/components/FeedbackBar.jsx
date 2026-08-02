@@ -10,36 +10,39 @@ export default function FeedbackBar({
 }) {
   const [submitted, setSubmitted] = useState(false);
   const [dialogOpen, setDialogOpen] = useState(false);
-async function sendFeedback(
-    rating,
-    comment = "",
-    reason = ""
-) {
-    if (submitted) return;
+async function sendFeedback(rating, comment = "", reason = "") {
+  if (submitted) return;
 
-    try {
-      await fetch("http://localhost:8001/feedback/", {
+  try {
+    const response = await fetch(
+      `${import.meta.env.VITE_API_URL}/api/feedback/`,
+      {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-    session_id: sessionId,
-    chat_id: chatId,
-    message_id: messageId,
-    question,
-    answer,
-    rating,
-    reason,
-    comment,
-}),
-      });
+          session_id: sessionId,
+          chat_id: chatId,
+          message_id: messageId,
+          question,
+          answer,
+          rating,
+          reason,
+          comment,
+        }),
+      }
+    );
 
-      setSubmitted(true);
-    } catch (err) {
-      console.error("Feedback error:", err);
+    if (!response.ok) {
+      throw new Error("Failed to save feedback");
     }
+
+    setSubmitted(true);
+  } catch (err) {
+    console.error("Feedback error:", err);
   }
+}
 
   if (submitted) {
     return (
