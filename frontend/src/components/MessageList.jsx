@@ -43,11 +43,13 @@ export default function MessageList({ messages, loading }) {
 
   return (
     <div key={idx}>
-      <BotMessage
-        content={msg.content}
-        functionName={msg.functionName}
-        args={msg.args}
-      />
+    {(msg.content || msg.functionName) && (
+  <BotMessage
+    content={msg.content}
+    functionName={msg.functionName}
+    args={msg.args}
+  />
+)}
 
       <FeedbackBar
         question={previousUser?.content || ""}
