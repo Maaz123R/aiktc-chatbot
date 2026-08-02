@@ -838,16 +838,16 @@ async def dashboard_feedback(
 
     for item in reversed(feedback):
 
-        if item.get("rating") != "not_helpful":
-            continue
+    
+         rating = item.get("rating", "")
 
-        data.append({
-            "id": item.get("id"),
-            "timestamp": item.get("created_at"),
-            "session_id": item.get("session_id"),
-            "rating": item.get("rating"),
-            "comment": item.get("comment", ""),
-            "conversation_snippet": item.get("question", ""),
+    data.append({
+        "id": item.get("id"),
+        "timestamp": item.get("created_at"),
+        "session_id": item.get("session_id"),
+        "rating": "👍 Helpful" if rating == "helpful" else "👎 Not Helpful",
+        "comment": item.get("comment", ""),
+        "conversation_snippet": item.get("question", ""),
         })
 
     return {"data": data[:100]}
