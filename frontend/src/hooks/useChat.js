@@ -67,42 +67,51 @@ const clearAllChats = () => {
   const sendMessage = useCallback(async (text) => {
     if (!text.trim()) return;
     setLoading(true);
-    
+
     const userMessage = {
-  role: "user",
-  content: text,
-};
+      role: "user",
+      content: text,
+    };
 
-const botMessage = {
-  role: "assistant",
-  content: "",
-  functionName: null,
-  args: null,
-  completed: false,
-};
+    const botMessage = {
+      role: "assistant",
+      content: "",
+      functionName: null,
+      args: null,
+      completed: false,
+    };
 
-setMessages(prev => [
-  ...prev,
-  userMessage,
-  botMessage
-]);
+    setMessages(prev => [
+      ...prev,
+      userMessage,
+      botMessage,
+    ]);
 
     try {
       await sendChatMessage(sessionId, text, (chunk) => {
-       console.log("CHUNK RECEIVED:", chunk);   // <-- ADD THIS
+        console.log("CHUNK RECEIVED:", chunk);
+
         if (chunk.type === "function_call") {
-    botMessage.functionName = chunk.name;
-    botMessage.args = chunk.args;
+          botMessage.functionName = chunk.name;
+          botMessage.args = chunk.args;
 
-    if (chunk.name === "show_text") {
-        botMessage.content = chunk.args.message;
-    } else {
-        botMessage.content = "";
-    }
+          if (chunk.name === "show_text") {
+            botMessage.content = chunk.args.message;
+          } else {
+            botMessage.content = "";
+          }
+        }
 
-    botMessage.completed = true;
-    setMessages(prev => [...prev.slice(0, -1), { ...botMessage }]);
-}
+        if (chunk.type === "done") {
+          botMessage.completed = true;
+
+          console.log("DONE:", botMessage);
+
+          setMessages(prev => [
+            ...prev.slice(0, -1),
+            { ...botMessage },
+          ]);
+        }
       });
     } catch (err) {
       console.error('Chat error:', err);
@@ -113,55 +122,53 @@ setMessages(prev => [
           {
             label: "Admissions Office (Engineering)",
             phone: "+91 8104363070",
-            email: "admissions@aiktc.ac.in"
+            email: "admissions@aiktc.ac.in",
           },
           {
             label: "General Enquiry",
             phone: "+91 91371 23439",
-            email: "aiktc.newpanvel@aiktc.ac.in"
-          }
-        ]
+            email: "aiktc.newpanvel@aiktc.ac.in",
+          },
+        ],
       };
       setMessages(prev => [...prev.slice(0, -1), { ...botMessage }]);
     } finally {
-    setLoading(false);
+      setLoading(false);
 
-    setMessages(prev => {
-
+      setMessages(prev => {
         const updatedMessages = [
-            ...prev.slice(0, -1),
-            { ...botMessage }
+          ...prev.slice(0, -1),
+          { ...botMessage },
         ];
 
-        const title =
-            currentChatId
-                ? history.find(c => c.id === currentChatId)?.title || text
-                : (text.length > 30
-                    ? text.substring(0, 30) + "..."
-                    : text);
+        const title = currentChatId
+          ? history.find(c => c.id === currentChatId)?.title || text
+          : (text.length > 30
+              ? text.substring(0, 30) + "..."
+              : text);
 
         const chatId = currentChatId ?? Date.now();
 
         const chat = {
-            id: chatId,
-            title,
-            messages: updatedMessages,
-            timestamp: new Date().toLocaleString(),
+          id: chatId,
+          title,
+          messages: updatedMessages,
+          timestamp: new Date().toLocaleString(),
         };
 
         if (currentChatId === null) {
-            addChat(chat);
-            setCurrentChatId(chatId);
+          addChat(chat);
+          setCurrentChatId(chatId);
         } else {
-            updateChat(chat);
+          updateChat(chat);
         }
 
         setHistory(getChats());
 
         return updatedMessages;
-    });
-  }
-}, [sessionId, currentChatId, history]);
+      });
+    }
+  }, [sessionId, currentChatId, history]);
 
 return {
   messages,
