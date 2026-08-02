@@ -28,15 +28,30 @@ export default function MessageList({ messages, loading }) {
         if (msg.role === "user") {
           return <UserBubble key={idx} content={msg.content} />;
         }
-
         return (
           <div key={idx}>
             {(msg.content || msg.functionName) && (
-              <BotMessage
-                content={msg.content}
-                functionName={msg.functionName}
-                args={msg.args}
-              />
+              <>
+                <BotMessage
+                  content={msg.content}
+                  functionName={msg.functionName}
+                  args={msg.args}
+                />
+
+                {msg.completed && (
+                  <FeedbackBar
+                    question={
+                      messages[idx - 1]?.role === "user"
+                        ? messages[idx - 1].content
+                        : ""
+                    }
+                    answer={msg.content}
+                    sessionId=""
+                    chatId=""
+                    messageId={idx}
+                  />
+                )}
+              </>
             )}
           </div>
         );
