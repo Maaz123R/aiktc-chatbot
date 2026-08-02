@@ -846,7 +846,8 @@ async def dashboard_feedback(
         "timestamp": item.get("created_at"),
         "session_id": item.get("session_id"),
         "rating": "👍 Helpful" if rating == "helpful" else "👎 Not Helpful",
-        "comment": item.get("comment", ""),
+        "comment": item.get(
+            "comment", ""),
         "conversation_snippet": item.get("question", ""),
         })
 
