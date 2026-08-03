@@ -13,16 +13,14 @@ export default function ChatShell() {
 
   const messagesRef = useRef(null);
   const bottomRef = useRef(null);
-   useEffect(() => {
-  const timer = setTimeout(() => {
-    bottomRef.current?.scrollIntoView({
-      behavior: "smooth",
-      block: "end",
-    });
-  }, 100);
+ useEffect(() => {
+  if (!messagesRef.current) return;
 
-  return () => clearTimeout(timer);
-}, [messages, loading]);
+  messagesRef.current.scrollTo({
+    top: messagesRef.current.scrollHeight,
+    behavior: "smooth",
+  });
+}, [messages.length, loading]);
   // Use a base64 encoded fallback watermark if image doesn't load
   const logoFallback = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Crect width='200' height='200' fill='%23667eea' opacity='0.3'/%3E%3Ctext x='50%25' y='50%25' font-size='40' font-weight='bold' fill='%23667eea' text-anchor='middle' dy='.3em' opacity='0.5'%3EAIKTC%3C/text%3E%3C/svg%3E";
 
