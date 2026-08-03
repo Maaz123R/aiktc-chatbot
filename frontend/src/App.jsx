@@ -8,17 +8,16 @@ export default function App() {
   const labels = getLabels();
   return (
     <LangContext.Provider value={{ lang, setLang, labels }}>
-      <div
+ <div
   style={{
     width: "100%",
-    height: "100dvh",
+    height: "100vh",
     display: "flex",
     justifyContent: "center",
-    alignItems: "stretch",   // ✅ instead of center
-    padding: 20,
-    background: "#eef2f7",
+    alignItems: "stretch",
+    padding: 0,
     overflow: "hidden",
-    boxSizing: "border-box",
+    background: "#eef2f7",
   }}
 >
     <ChatShell />
