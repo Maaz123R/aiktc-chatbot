@@ -133,14 +133,17 @@ export default function ChatShell() {
         </div>
 
         {/* Chat Container */}
-        <div
-          style={{
-            flex: 1,
-            position: "relative",
-            overflow: "hidden",
-            background: "#111827",
-          }}
-        >
+      <div
+  style={{
+    flex: 1,
+    position: "relative",
+    overflow: "hidden",
+    background: "#111827",
+    display: "flex",
+    flexDirection: "column",
+    minHeight: 0,
+  }}
+>
           {/* Fixed Watermark - Using both image and text fallback */}
           <div
             style={{
@@ -185,16 +188,16 @@ export default function ChatShell() {
 
           {/* Scrollable Messages Area */}
           <div
-            style={{
-              flex: 1,              // ✅ instead of height
-              overflowY: "auto",
-              background: "transparent",
-              position: "relative",
-              padding: "18px",
-              paddingBottom: "20px", // ✅ reduce this
-              zIndex: 2,
-            }}
-          >
+  style={{
+    flex: 1,
+    minHeight: 0,
+    overflowY: "auto",
+    background: "transparent",
+    position: "relative",
+    padding: 18,
+    zIndex: 2,
+  }}
+>
             {/* Content - sits on top of watermark */}
             <div
               style={{
