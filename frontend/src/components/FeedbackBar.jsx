@@ -35,8 +35,10 @@ async function sendFeedback(rating, comment = "", reason = "") {
     );
 
     if (!response.ok) {
-      throw new Error("Failed to save feedback");
-    }
+  const error = await response.json();
+  console.error("Feedback API Error:", error);
+  throw new Error("Failed to save feedback");
+}
 
     setSubmitted(true);
   } catch (err) {
