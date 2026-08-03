@@ -2,20 +2,14 @@ import UserBubble from "./UserBubble";
 import BotMessage from "./BotMessage";
 import TypingIndicator from "./TypingIndicator";
 import FeedbackBar from "./FeedbackBar";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 
-export default function MessageList({ messages, loading }) {
-  const containerRef = useRef(null);
-
-  useEffect(() => {
-    if (containerRef.current) {
-      containerRef.current.scrollTop = containerRef.current.scrollHeight;
-    }
-  }, [messages]);
+export default function MessageList({ messages, loading, sessionId }) {
+ 
 
   return (
     <div
-      ref={containerRef}
+  
       style={{
         display: "flex",
         flexDirection: "column",
@@ -40,16 +34,16 @@ export default function MessageList({ messages, loading }) {
 
                 {msg.completed && (
                   <FeedbackBar
-                    question={
-                      messages[idx - 1]?.role === "user"
-                        ? messages[idx - 1].content
-                        : ""
-                    }
-                    answer={msg.content}
-                    sessionId=""
-                    chatId=""
-                    messageId={idx}
-                  />
+  question={
+    messages[idx - 1]?.role === "user"
+      ? messages[idx - 1].content
+      : ""
+  }
+  answer={msg.content}
+ sessionId=""
+  chatId=""
+  messageId={String(idx)}
+/>
                 )}
               </>
             )}

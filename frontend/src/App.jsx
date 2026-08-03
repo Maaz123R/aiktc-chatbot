@@ -11,7 +11,8 @@ export default function App() {
       <div
   style={{
     width: "100%",
-    height: "100vh",
+    height: "100dvh",
+    overflow: "hidden",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",

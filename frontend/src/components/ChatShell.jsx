@@ -10,8 +10,16 @@ export default function ChatShell() {
   const sessionId = getSessionId();
   const { messages, loading, sendMessage } = useChat(sessionId);
   const showChips = !messages || messages.length === 0;
+
   const messagesRef = useRef(null);
-  
+    useEffect(() => {
+    if (messagesRef.current) {
+      messagesRef.current.scrollTo({
+        top: messagesRef.current.scrollHeight,
+        behavior: "smooth",
+      });
+    }
+  }, [messages, loading]);
   // Use a base64 encoded fallback watermark if image doesn't load
   const logoFallback = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Crect width='200' height='200' fill='%23667eea' opacity='0.3'/%3E%3Ctext x='50%25' y='50%25' font-size='40' font-weight='bold' fill='%23667eea' text-anchor='middle' dy='.3em' opacity='0.5'%3EAIKTC%3C/text%3E%3C/svg%3E";
 
@@ -187,11 +195,12 @@ export default function ChatShell() {
           </div>
 
           {/* Scrollable Messages Area */}
-          <div
+   <div
+  ref={messagesRef}
   style={{
     flex: 1,
-    minHeight: 0,
     overflowY: "auto",
+    minHeight: 0,
     background: "transparent",
     position: "relative",
     padding: 18,
@@ -208,7 +217,11 @@ export default function ChatShell() {
               {showChips && <QuickChips onChipClick={sendMessage} />}
 
               <ErrorBoundary>
-                <MessageList messages={messages} loading={loading} />
+               <MessageList
+  messages={messages}
+  loading={loading}
+  sessionId={sessionId}
+/>
               </ErrorBoundary>
             </div>
           </div>
