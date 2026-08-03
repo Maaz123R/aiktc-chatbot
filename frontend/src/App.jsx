@@ -12,12 +12,13 @@ export default function App() {
   style={{
     width: "100%",
     height: "100dvh",
-    overflow: "hidden",
     display: "flex",
     justifyContent: "center",
-    alignItems: "center",
+    alignItems: "stretch",   // ✅ instead of center
     padding: 20,
     background: "#eef2f7",
+    overflow: "hidden",
+    boxSizing: "border-box",
   }}
 >
     <ChatShell />

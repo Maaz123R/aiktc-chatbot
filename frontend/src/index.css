@@ -38,12 +38,12 @@
 
 /* Scrollable messages */
 .messages-scroll {
-  height: 100%;
+  flex: 1;
+  min-height: 0;
   overflow-y: auto;
   background: transparent;
   position: relative;
   padding: 18px;
-  padding-bottom: 120px;
   z-index: 2;
 }
 

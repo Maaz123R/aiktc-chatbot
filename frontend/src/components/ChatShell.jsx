@@ -26,17 +26,17 @@ export default function ChatShell() {
   return (
     <div
       style={{
-        height: "90vh",
-        maxWidth: 1200,
-        width: "100%",
-        margin: "2rem auto",
-        borderRadius: 20,
-       overflow: "hidden",   // ✅
-        boxShadow: "0 10px 30px rgba(0,0,0,.15)",
-        background: "#fff",
-        display: "flex",
-        flexDirection: "column",
-      }}
+  height: "100%",
+  maxWidth: 1200,
+  width: "100%",
+  margin: 0,
+  borderRadius: 20,
+  overflow: "hidden",
+  boxShadow: "0 10px 30px rgba(0,0,0,.15)",
+  background: "#fff",
+  display: "flex",
+  flexDirection: "column",
+}}
     >
       <div
         style={{
