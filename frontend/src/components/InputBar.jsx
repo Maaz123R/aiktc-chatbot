@@ -1,14 +1,19 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 export default function InputBar({ onSend, disabled }) {
   const [text, setText] = useState("");
+  const inputRef = useRef(null);
 
   const handleSend = () => {
-    if (text.trim() && !disabled) {
-      onSend(text);
-      setText("");
-    }
-  };
+  if (text.trim() && !disabled) {
+    onSend(text);
+    setText("");
+
+    setTimeout(() => {
+      inputRef.current?.focus();
+    }, 100);
+  }
+};
 
   return (
    <div
