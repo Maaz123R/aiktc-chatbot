@@ -10,6 +10,7 @@ export default function ChatShell() {
   const sessionId = getSessionId();
   const { messages, loading, sendMessage } = useChat(sessionId);
   const showChips = !messages || messages.length === 0;
+  const messagesRef = useRef(null);
   
   // Use a base64 encoded fallback watermark if image doesn't load
   const logoFallback = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Crect width='200' height='200' fill='%23667eea' opacity='0.3'/%3E%3Ctext x='50%25' y='50%25' font-size='40' font-weight='bold' fill='%23667eea' text-anchor='middle' dy='.3em' opacity='0.5'%3EAIKTC%3C/text%3E%3C/svg%3E";
@@ -22,8 +23,7 @@ export default function ChatShell() {
         width: "100%",
         margin: "2rem auto",
         borderRadius: 20,
-       overflowY: "scroll",
-scrollbarWidth: "thin",
+       overflow: "hidden",   // ✅
         boxShadow: "0 10px 30px rgba(0,0,0,.15)",
         background: "#fff",
         display: "flex",
@@ -186,12 +186,12 @@ scrollbarWidth: "thin",
           {/* Scrollable Messages Area */}
           <div
             style={{
-              height: "100%",
+              flex: 1,              // ✅ instead of height
               overflowY: "auto",
               background: "transparent",
               position: "relative",
               padding: "18px",
-              paddingBottom: "120px",
+              paddingBottom: "20px", // ✅ reduce this
               zIndex: 2,
             }}
           >
