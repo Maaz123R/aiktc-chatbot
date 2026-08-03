@@ -24,7 +24,7 @@ async function sendFeedback(rating, comment = "", reason = "") {
         body: JSON.stringify({
           session_id: sessionId,
           chat_id: chatId,
-          message_id: messageId,
+          message_id: String(messageId ?? ""),
           question,
           answer,
           rating,
