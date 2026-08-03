@@ -141,15 +141,14 @@ export default function ChatShell() {
         </div>
 
         {/* Chat Container */}
-      <div
+ <div
   style={{
     flex: 1,
-    position: "relative",
+    display: "grid",
+    gridTemplateRows: "1fr",
     overflow: "hidden",
+    position: "relative",
     background: "#111827",
-    display: "flex",
-    flexDirection: "column",
-    minHeight: 0,
   }}
 >
           {/* Fixed Watermark - Using both image and text fallback */}
@@ -195,16 +194,14 @@ export default function ChatShell() {
           </div>
 
           {/* Scrollable Messages Area */}
-   <div
+<div
   ref={messagesRef}
   style={{
-    flex: 1,
     overflowY: "auto",
-    minHeight: 0,
-    background: "transparent",
-    position: "relative",
+    overflowX: "hidden",
+    height: "100%",
     padding: 18,
-    zIndex: 2,
+    position: "relative",
   }}
 >
             {/* Content - sits on top of watermark */}

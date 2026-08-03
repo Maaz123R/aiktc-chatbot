@@ -8,16 +8,17 @@ export default function MessageList({ messages, loading, sessionId }) {
  
 
   return (
-    <div
-  
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        gap: 16,
-        position: "relative",
-        zIndex: 1,
-      }}
-    >
+<div
+  style={{
+    display: "flex",
+    flexDirection: "column",
+    gap: 16,
+    position: "relative",
+    zIndex: 1,
+    width: "100%",
+    minHeight: 0,
+  }}
+>
       {messages.map((msg, idx) => {
         if (msg.role === "user") {
           return <UserBubble key={idx} content={msg.content} />;
@@ -40,8 +41,8 @@ export default function MessageList({ messages, loading, sessionId }) {
       : ""
   }
   answer={msg.content}
- sessionId=""
-  chatId=""
+ sessionId={sessionId}
+chatId=""
   messageId={String(idx)}
 />
                 )}
