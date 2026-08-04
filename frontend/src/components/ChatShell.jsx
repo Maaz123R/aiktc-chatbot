@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import MessageList from "./MessageList";
 import InputBar from "./InputBar";
 import QuickChips from "./QuickChips";

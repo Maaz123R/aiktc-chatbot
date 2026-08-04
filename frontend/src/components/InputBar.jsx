@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function InputBar({ onSend, disabled }) {
   const [text, setText] = useState("");
