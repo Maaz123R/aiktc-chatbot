@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { useCallback } from "react";
 import { useLabel } from "../../utils/labels";
 
@@ -15,6 +16,13 @@ export default function TableResponse({ data, lang }) {
   const labelIntake = useLabel(lang, "table_intake");
   const labelFees   = useLabel(lang, "table_fees");
   const labelNoResults = useLabel(lang, "no_results");
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+useEffect(() => {
+  const resize = () => setIsMobile(window.innerWidth <= 768);
+  window.addEventListener("resize", resize);
+  return () => window.removeEventListener("resize", resize);
+}, []);
 
   const translateHeader = useCallback(
     (col) => {
@@ -43,11 +51,39 @@ export default function TableResponse({ data, lang }) {
 
   return (
     <div style={{ marginBottom: 12 }}>
-      {title && <p style={{ fontWeight: 600, marginBottom: 8 }}>{title}</p>}
-      <div style={{ overflowX: "auto" }}>
+      {isMobile && (
+  <p
+    style={{
+      fontSize: 12,
+      color: "#64748b",
+      marginBottom: 6,
+      textAlign: "center",
+    }}
+  >
+    ← Swipe horizontally to view all columns →
+  </p>
+)}{isMobile && (
+  <p
+    style={{
+      fontSize: 12,
+      color: "#64748b",
+      marginBottom: 6,
+      textAlign: "center",
+    }}
+  >
+    ← Swipe horizontally to view all columns →
+  </p>
+)}
+      <div
+  style={{
+    overflowX: "auto",
+    WebkitOverflowScrolling: "touch",
+    marginTop: 8,
+  }}
+>
         <table
 style={{
-width:"100%",
+width:"100 720%",
 minWidth:600,
 tableLayout:"fixed",
 borderCollapse:"collapse",
