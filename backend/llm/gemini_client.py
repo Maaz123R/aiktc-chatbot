@@ -277,13 +277,19 @@ async def call_gemini_stream(prompt: dict) -> AsyncGenerator[dict, None]:
                             for part in content.get("parts", []):
                                 if "functionCall" in part:
                                     fc = part["functionCall"]
+                                    logger.info(
+                                        f"FUNCTION CALL: model={model}, function={fc.get('name')}"
+                                    )
                                     yield {
                                         "type": "function_call",
                                         "name": fc.get("name", "show_text"),
-                                        "args": fc.get("args", {})
+                                        "args": fc.get("args", {}),
                                     }
                                     return
                                 elif "text" in part:
+                                    logger.info(
+    f"TEXT RESPONSE: model={model}"
+)
                                     yield {"type": "text_chunk", "content": part["text"]}
                     
                     # Successfully processed full stream response
