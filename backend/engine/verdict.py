@@ -48,6 +48,27 @@ def reload_cutoffs(path: Path | None = None):
         CUTOFFS_PATH = Path(path)
     _CUTOFFS_CACHE = load_cutoffs()
 
+def get_cutoff_history(
+    department: str,
+    category: str | None = None,
+    unit: str = "percentile"
+):
+    rows = get_cutoffs()
+
+    filtered = [
+        r for r in rows
+        if r["branch"].upper() == department.upper()
+        and r["cutoff_unit"] == unit
+        and (
+            category is None
+            or r["category"].lower() == category.lower()
+        )
+    ]
+
+    filtered.sort(key=lambda x: x["year"], reverse=True)
+
+    return filtered
+
 
 def compute_verdict(
     department: str,
