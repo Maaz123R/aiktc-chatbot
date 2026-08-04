@@ -1,16 +1,32 @@
+import { useState, useEffect } from "react";
 import ImageWithFallback from "./ImageWithFallback";
 import { parseInline } from "./TextBubble";
 
 export default function ListCards({ data }) {
   const { title, items } = data || {};
-  const isMobile = window.innerWidth <= 768;
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+useEffect(() => {
+  const handleResize = () => setIsMobile(window.innerWidth <= 768);
+
+  window.addEventListener("resize", handleResize);
+
+  return () => window.removeEventListener("resize", handleResize);
+}, []);
+
   if (!items) return null;
   return (
     <div>
       <p style={{ fontWeight: 600, marginBottom: 8 }}>{parseInline(title)}</p>
-      <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+      <div
+  style={{
+    display: "flex",
+    flexDirection: "column",
+    gap: isMobile ? 8 : 12,
+  }}
+>
         {items.map((item, i) => (
-          <div
+         <div
   key={i}
   style={{
     display: "flex",
@@ -22,7 +38,7 @@ export default function ListCards({ data }) {
   }}
 >
             {(item.image_url || item.initials) && (
-              <ImageWithFallback
+             <ImageWithFallback
   src={item.image_url}
   initials={item.initials}
   size={isMobile ? 40 : 48}
@@ -30,18 +46,13 @@ export default function ListCards({ data }) {
 />
             )}
             <div>
-              <p
+             <p
   style={{
     fontWeight: 600,
     fontSize: isMobile ? 15 : 16,
   }}
 >{parseInline(item.name)}</p>
-              <p
-  style={{
-    fontSize: isMobile ? 11 : 12,
-    color: "#475569",
-  }}
->{parseInline(item.description)}</p>
+              <p style={{ fontSize: isMobile ? 11 : 12, color: "#475569" }}>{parseInline(item.description)}</p>
               {item.location && <p style={{ fontSize: isMobile ? 10 : 11, color: "#64748b" }}>📍 {parseInline(item.location)}</p>}
             </div>
           </div>

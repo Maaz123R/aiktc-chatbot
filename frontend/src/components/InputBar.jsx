@@ -1,9 +1,16 @@
-import { useState, useRef } from "react";
+import { useState, useEffect } from "react";
 
 export default function InputBar({ onSend, disabled }) {
   const [text, setText] = useState("");
-  const inputRef = useRef(null);
-  const isMobile = window.innerWidth <= 768;
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+useEffect(() => {
+  const handleResize = () => setIsMobile(window.innerWidth <= 768);
+
+  window.addEventListener("resize", handleResize);
+
+  return () => window.removeEventListener("resize", handleResize);
+}, []);
 
   const handleSend = () => {
   if (text.trim() && !disabled) {
@@ -24,7 +31,7 @@ export default function InputBar({ onSend, disabled }) {
     background: "#ffffff",
     display: "flex",
     alignItems: "center",
-    gap: 10,
+    gap: isMobile ? 6 : 10,
   }}
 >
   {/* Attachment Button */}
@@ -36,7 +43,7 @@ export default function InputBar({ onSend, disabled }) {
       border: "1px solid #d1d5db",
       background: "#f8fafc",
       cursor: "pointer",
-      fontSize: 18,
+      fontSize: isMobile ? 16 : 18,
       transition: "0.2s",
     }}
     title="Attach File"
@@ -55,10 +62,11 @@ export default function InputBar({ onSend, disabled }) {
     style={{
       flex: 1,
       padding: isMobile ? "10px 14px" : "12px 18px",
+      fontSize: isMobile ? 14 : 15,
       border: "1px solid #cbd5e1",
       borderRadius: 30,
       outline: "none",
-      fontSize: isMobile ? 14 : 15,
+  
       background: "#f8fafc",
       transition: "0.2s",
       color: "#080808",
@@ -70,11 +78,12 @@ export default function InputBar({ onSend, disabled }) {
     style={{
       width: isMobile ? 36 : 42,
       height: isMobile ? 36 : 42,
+      fontSize: isMobile ? 16 : 18,
       borderRadius: "50%",
       border: "1px solid #d1d5db",
       background: "#f8fafc",
       cursor: "pointer",
-      fontSize: 18,
+     
       transition: "0.2s",
     }}
     title="Voice Input"
@@ -90,7 +99,8 @@ export default function InputBar({ onSend, disabled }) {
       background: "linear-gradient(135deg,#667eea,#764ba2)",
       border: "none",
       borderRadius: 30,
-      padding: isMobile ? "10px 16px" : "12px 24px",
+      padding: isMobile ? "10px 14px" : "12px 24px",
+      fontSize: isMobile ? 13 : 15,
       color: "#fff",
       fontWeight: 600,
       cursor: "pointer",

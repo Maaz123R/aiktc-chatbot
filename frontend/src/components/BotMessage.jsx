@@ -1,27 +1,35 @@
 import ResponseRouter from "./ResponseRouter";
 import TextBubble from "./renderers/TextBubble";
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import { LangContext } from "../context/LangContext";
 
 export default function BotMessage({ content, functionName, args }) {
   const { lang } = useContext(LangContext);
-  
-  const isMobile = window.innerWidth <= 768;
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+useEffect(() => {
+  const handleResize = () => setIsMobile(window.innerWidth <= 768);
+
+  window.addEventListener("resize", handleResize);
+
+  return () => window.removeEventListener("resize", handleResize);
+}, []);
 
   if (functionName) {
 
        console.log("Rendering ResponseRouter", functionName);
     return (
       <div
-        style={{
-          alignSelf: "flex-start",
-          maxWidth: isMobile ? "96%" : "90%",
-          background: "#ffffff",
-          borderRadius: 16,
-          padding: 16,
-          boxShadow: "0 2px 10px rgba(0,0,0,.08)",
-          marginBottom: 10,
-        }}
+       style={{
+  alignSelf: "flex-start",
+  maxWidth: isMobile ? "96%" : "90%",
+  width: "fit-content",
+  background: "#ffffff",
+  borderRadius: 16,
+  padding: isMobile ? 12 : 16,
+  boxShadow: "0 2px 10px rgba(0,0,0,.08)",
+  marginBottom: 10,
+}}
       >
      
         <ResponseRouter
@@ -35,16 +43,17 @@ export default function BotMessage({ content, functionName, args }) {
 
   return (
     <div
-      style={{
-        alignSelf: "flex-start",
-        maxWidth: "90%",
-        background: "#ffffff",
-        borderRadius: 16,
-        padding: 16,
-        boxShadow: "0 2px 10px rgba(0,0,0,.08)",
-        color: "#111827",
-        marginBottom: 10,
-      }}
+   style={{
+  alignSelf: "flex-start",
+  maxWidth: isMobile ? "96%" : "90%",
+  width: "fit-content",
+  background: "#ffffff",
+  borderRadius: 16,
+  padding: isMobile ? 12 : 16,
+  boxShadow: "0 2px 10px rgba(0,0,0,.08)",
+  color: "#111827",
+  marginBottom: 10,
+}}
     >
       <TextBubble
         data={{ message: content }}

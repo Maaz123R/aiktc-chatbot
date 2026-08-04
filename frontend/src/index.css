@@ -3,39 +3,57 @@
   --color-text-secondary: #6b7280;
 }
 
-/* Chat container takes full space */
-.chat-wrapper {
-  flex: 1;
-  position: relative;
-  overflow: hidden;
-  background: #ffffff;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-/* Watermark stays fixed */
-.watermark-container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 280px;
-  max-width: 70%;
-  pointer-events: none;
-  z-index: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+html,
+body,
+#root{
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  background:#eef2f7;
 }
 
-.watermark-container img {
-  width: 100%;
-  height: auto;
-  display: block;
-  user-select: none;
-  opacity: 0.12;
-  filter: grayscale(0.2);
+/* Chat wrapper */
+.chat-wrapper{
+  flex:1;
+  position:relative;
+  overflow:hidden;
+  background:#fff;
 }
 
+/* Watermark */
+.watermark-container{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:280px;
+  max-width:70%;
+  opacity:.12;
+  pointer-events:none;
+  z-index:1;
+}
+
+.watermark-container img{
+  width:100%;
+  height:auto;
+  display:block;
+}
+
+/* Messages */
+.messages-scroll{
+  flex:1;
+  overflow-y:auto;
+  overflow-x:hidden;
+  position:relative;
+  padding:18px;
+  z-index:2;
 /* Scrollable messages */
 .messages-scroll {
   flex: 1;
@@ -47,21 +65,56 @@
   z-index: 2;
 }
 
-.messages-content {
-  position: relative;
-  z-index: 5;
+.messages-content{
+  position:relative;
+  z-index:5;
 }
 
-/* Scrollbar styles */
-::-webkit-scrollbar {
-  width: 6px;
+/* Scrollbar */
+.messages-scroll::-webkit-scrollbar{
+  width:6px;
 }
 
-::-webkit-scrollbar-thumb {
-  background: #7c3aed;
-  border-radius: 20px;
+.messages-scroll::-webkit-scrollbar-thumb{
+  background:#7c3aed;
+  border-radius:20px;
 }
 
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
+.messages-scroll::-webkit-scrollbar-track{
+  background:transparent;
+}
+
+/* ========================= */
+/* MOBILE RESPONSIVE */
+/* ========================= */
+
+@media (max-width:768px){
+
+  html,
+  body,
+  #root{
+    overflow:hidden;
+  }
+
+  .chat-wrapper{
+    border-radius:0;
+  }
+
+  .watermark-container{
+    width:160px;
+  }
+
+  .messages-scroll{
+    padding:10px;
+  }
+
+  table{
+    min-width:600px;
+  }
+
+  img{
+    max-width:100%;
+    height:auto;
+  }
+
 }
