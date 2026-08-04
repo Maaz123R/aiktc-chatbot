@@ -16,14 +16,7 @@ export default function TableResponse({ data, lang }) {
   const labelIntake = useLabel(lang, "table_intake");
   const labelFees   = useLabel(lang, "table_fees");
   const labelNoResults = useLabel(lang, "no_results");
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
-
-useEffect(() => {
-  const resize = () => setIsMobile(window.innerWidth <= 768);
-  window.addEventListener("resize", resize);
-  return () => window.removeEventListener("resize", resize);
-}, []);
-
+ 
   const translateHeader = useCallback(
     (col) => {
       const c = col?.toLowerCase()?.trim();
@@ -62,23 +55,15 @@ useEffect(() => {
   >
 
   </p>
-)}{isMobile && (
-  <p
-    style={{
-      fontSize: 12,
-      color: "#64748b",
-      marginBottom: 6,
-      textAlign: "center",
-    }}
-  >
-    ← Swipe horizontally to view all columns →
-  </p>
 )}
-      <div
+     <div
   style={{
     overflowX: "auto",
+    overflowY: "hidden",
     WebkitOverflowScrolling: "touch",
-    marginTop: 8,
+    scrollbarWidth: "thin",
+    scrollbarColor: "#9ca3af transparent",
+    paddingBottom: 4,
   }}
 >
         <table
