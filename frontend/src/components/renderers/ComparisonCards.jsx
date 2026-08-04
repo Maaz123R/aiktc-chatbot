@@ -16,7 +16,7 @@ useEffect(() => {
   // Pre-fetch all possible label translations at top level (hooks rules compliance)
   const labelFees   = useLabel(lang, "table_fees");
   const labelIntake = useLabel(lang, "table_intake");
-  const isMobile = window.innerWidth <= 768;
+
 
   if (!items || !Array.isArray(items)) return null;
 
