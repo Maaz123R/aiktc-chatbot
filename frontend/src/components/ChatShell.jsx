@@ -12,8 +12,8 @@ export default function ChatShell() {
   const showChips = !messages || messages.length === 0;
 
   const messagesRef = useRef(null);
-  const bottomRef = useRef(null);
- useEffect(() => {
+
+useEffect(() => {
   if (!messagesRef.current) return;
 
   messagesRef.current.scrollTo({
@@ -35,15 +35,17 @@ style={{
     overflow: "hidden",
 }}
     >
-      <div
-        style={{
-          flex: 1,
-          display: "flex",
-          flexDirection: "column",
-          minWidth: 0,
-          position: "relative",
-        }}
-      >
+     <div
+  style={{
+    flex: 1,
+    display: "flex",
+    flexDirection: "column",
+    minWidth: 0,
+    minHeight: 0,
+    position: "relative",
+    overflow: "hidden",
+  }}
+>
         {/* Header */}
         <div
           style={{
@@ -138,11 +140,12 @@ style={{
         </div>
 
         {/* Chat Container */}
- <div
+<div
   style={{
     flex: 1,
-    display: "grid",
-    gridTemplateRows: "1fr",
+    display: "flex",
+    flexDirection: "column",
+    minHeight: 0,
     overflow: "hidden",
     position: "relative",
     background: "#111827",
@@ -194,11 +197,14 @@ style={{
 <div
   ref={messagesRef}
   style={{
+    flex: 1,
+    minHeight: 0,
     overflowY: "auto",
     overflowX: "hidden",
-    height: "100%",
     padding: 18,
     position: "relative",
+    display: "flex",
+    flexDirection: "column",
   }}
 >
             {/* Content - sits on top of watermark */}
@@ -218,7 +224,6 @@ style={{
   />
 </ErrorBoundary>
 
-<div ref={bottomRef} />
             </div>
           </div>
         </div>

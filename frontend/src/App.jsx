@@ -18,6 +18,7 @@ export default function App() {
     padding: 0,
     overflow: "hidden",
     background: "#eef2f7",
+    minHeight: 0,
   }}
 >
     <ChatShell />
