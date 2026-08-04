@@ -25,18 +25,22 @@ useEffect(() => {
   const logoFallback = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Crect width='200' height='200' fill='%23667eea' opacity='0.3'/%3E%3Ctext x='50%25' y='50%25' font-size='40' font-weight='bold' fill='%23667eea' text-anchor='middle' dy='.3em' opacity='0.5'%3EAIKTC%3C/text%3E%3C/svg%3E";
 
   return (
-    <div
-style={{
-  width: "100%",
-  height: "100%",
-  maxWidth: isMobile ? "100%" : "1200px",
-  borderRadius: isMobile ? 0 : 20,
-}}
-    >
+   <div
+  style={{
+    width: "100%",
+    height: "100%",
+    maxWidth: isMobile ? "100%" : "1200px",
+    borderRadius: isMobile ? 0 : 20,
+    display: "flex",
+    flexDirection: "column",
+    overflow: "hidden",
+  }}
+>
       
      <div
   style={{
     flex: 1,
+    height: "100%",
     display: "flex",
     flexDirection: "column",
     minWidth: 0,
@@ -197,10 +201,11 @@ style={{
   ref={messagesRef}
   style={{
     flex: 1,
+    height: 0,
     minHeight: 0,
     overflowY: "auto",
     overflowX: "hidden",
-    padding:isMobile?10:18,
+    padding: isMobile ? 10 : 18,
     position: "relative",
     display: "flex",
     flexDirection: "column",
@@ -208,11 +213,14 @@ style={{
 >
             {/* Content - sits on top of watermark */}
             <div
-              style={{
-                position: "relative",
-                zIndex: 5,
-              }}
-            >
+  style={{
+    position: "relative",
+    zIndex: 5,
+    display: "flex",
+    flexDirection: "column",
+    width: "100%",
+  }}
+>
               {showChips && <QuickChips onChipClick={sendMessage} />}
 
            <ErrorBoundary>
@@ -229,15 +237,16 @@ style={{
 
         {/* Input */}
         <div
-          style={{
-            padding: 16,
-            background: "#fff",
-            borderTop: "1px solid #e5e7eb",
-            flexShrink: 0,
-            position: "relative",
-            zIndex: 10,
-          }}
-        >
+  style={{
+    padding: 16,
+    background: "#fff",
+    borderTop: "1px solid #e5e7eb",
+    flexShrink: 0,
+    position: "sticky",
+    bottom: 0,
+    zIndex: 10,
+  }}
+>
           <InputBar onSend={sendMessage} disabled={loading} />
         </div>
       </div>

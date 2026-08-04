@@ -9,14 +9,13 @@ export default function MessageList({ messages, loading, sessionId }) {
 
   return (
 <div
- style={{
-  display: "flex",
-  flexDirection: "column",
-  gap: 16,
-  position: "relative",
-  zIndex: 1,
-  width: "100%",
-}}
+  style={{
+    display: "flex",
+    flexDirection: "column",
+    gap: 16,
+    width: "100%",
+    flexShrink: 0,
+  }}
 >
       {messages.map((msg, idx) => {
         if (msg.role === "user") {
