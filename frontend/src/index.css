@@ -54,6 +54,7 @@ body,
   position:relative;
   padding:18px;
   z-index:2;
+}
 /* Scrollable messages */
 .messages-scroll {
   flex: 1;
