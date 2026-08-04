@@ -44,7 +44,7 @@ export default function TableResponse({ data, lang }) {
 
   return (
     <div style={{ marginBottom: 12 }}>
-      {isMobile && (
+     
   <p
     style={{
       fontSize: 12,
@@ -55,7 +55,7 @@ export default function TableResponse({ data, lang }) {
   >
 
   </p>
-)}
+
      <div
   style={{
     overflowX: "auto",
