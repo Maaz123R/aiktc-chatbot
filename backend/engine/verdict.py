@@ -1,14 +1,23 @@
 # backend/engine/verdict.py
 import csv
+import logging
 from pathlib import Path
 
-CUTOFFS_PATH = Path("backend/data/kb/cutoffs.csv")
+from pathlib import Path
 
+BASE_DIR = Path(__file__).resolve().parent.parent
+CUTOFFS_PATH = BASE_DIR / "data" / "kb" / "cutoffs.csv"
+
+logger = logging.getLogger(__name__)
+
+logger.info(f"Loading cutoffs from: {CUTOFFS_PATH}")
+logger.info(f"Exists: {CUTOFFS_PATH.exists()}")
 
 def load_cutoffs() -> list[dict]:
     """Load all rows from consolidated cutoffs.csv under data/kb/ into memory."""
     rows = []
     if not CUTOFFS_PATH.exists():
+        logger.warning(f"File not found: {CUTOFFS_PATH}")
         return []
 
     try:
@@ -26,7 +35,7 @@ def load_cutoffs() -> list[dict]:
                     "cutoff_unit": row["cutoff_unit"].strip().lower()
                 })
     except Exception as e:
-        pass
+        logger.error(f"Error reading cutoffs file: {e}")
     return rows
 
 
