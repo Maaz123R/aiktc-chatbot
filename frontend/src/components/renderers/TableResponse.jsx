@@ -60,7 +60,7 @@ useEffect(() => {
       textAlign: "center",
     }}
   >
-    ← Swipe horizontally to view all columns →
+
   </p>
 )}{isMobile && (
   <p
