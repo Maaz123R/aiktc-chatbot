@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 export default function InputBar({ onSend, disabled }) {
   const [text, setText] = useState("");
+  const inputRef = useRef(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
 useEffect(() => {
@@ -16,10 +17,6 @@ useEffect(() => {
   if (text.trim() && !disabled) {
     onSend(text);
     setText("");
-
-    setTimeout(() => {
-      inputRef.current?.focus();
-    }, 100);
   }
 };
 

@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 export default function UserBubble({ content }) {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
