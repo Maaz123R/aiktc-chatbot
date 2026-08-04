@@ -10,7 +10,7 @@ export default function ChatShell() {
   const sessionId = getSessionId();
   const { messages, loading, sendMessage } = useChat(sessionId);
   const showChips = !messages || messages.length === 0;
-
+  const isMobile = window.innerWidth <= 768;
   const messagesRef = useRef(null);
 
 useEffect(() => {
@@ -27,14 +27,13 @@ useEffect(() => {
   return (
     <div
 style={{
-    width: "100%",
-    height: "100%",
-    maxWidth: 1200,
-    display: "flex",
-    flexDirection: "column",
-    overflow: "hidden",
+  width: "100%",
+  height: "100%",
+  maxWidth: isMobile ? "100%" : "1200px",
+  borderRadius: isMobile ? 0 : 20,
 }}
     >
+      
      <div
   style={{
     flex: 1,
@@ -64,8 +63,8 @@ style={{
             src="/aiktc-logo.png"
             alt="AIKTC"
             style={{
-              width: 42,
-              height: 42,
+              width: isMobile ? 36 : 42,
+              height: isMobile ? 36 : 42,
               borderRadius: 10,
               background: "#fff",
               padding: 4,
@@ -85,7 +84,7 @@ style={{
             <h3
               style={{
                 margin: 0,
-                fontSize: 20,
+               fontSize: isMobile ? 16 : 20,
                 fontWeight: 700,
               }}
             >
@@ -111,7 +110,7 @@ style={{
 
               <span
                 style={{
-                  fontSize: 12,
+                  fontSize: isMobile ? 11 : 12,
                 }}
               >
                 Online • Ready to help
@@ -124,8 +123,8 @@ style={{
   target="_blank"
   rel="noopener noreferrer"
             style={{
-              width: 48,
-              height: 48,
+              width: isMobile ? 40 : 48,
+              height: isMobile ? 40 : 48,
               borderRadius: 10,
               background: "#fff",
               display: "flex",
@@ -158,7 +157,7 @@ style={{
               top: "50%",
               left: "50%",
               transform: "translate(-50%, -50%)",
-              width: "280px",
+              width: isMobile ? "160px" : "280px",
               maxWidth: "70%",
               pointerEvents: "none",
               zIndex: 1,
@@ -201,7 +200,7 @@ style={{
     minHeight: 0,
     overflowY: "auto",
     overflowX: "hidden",
-    padding: 18,
+    padding:isMobile?10:18,
     position: "relative",
     display: "flex",
     flexDirection: "column",

@@ -5,6 +5,8 @@ import { LangContext } from "../context/LangContext";
 
 export default function BotMessage({ content, functionName, args }) {
   const { lang } = useContext(LangContext);
+  
+  const isMobile = window.innerWidth <= 768;
 
   if (functionName) {
 
@@ -13,7 +15,7 @@ export default function BotMessage({ content, functionName, args }) {
       <div
         style={{
           alignSelf: "flex-start",
-          maxWidth: "90%",
+          maxWidth: isMobile ? "96%" : "90%",
           background: "#ffffff",
           borderRadius: 16,
           padding: 16,

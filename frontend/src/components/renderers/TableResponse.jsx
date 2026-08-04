@@ -45,7 +45,15 @@ export default function TableResponse({ data, lang }) {
     <div style={{ marginBottom: 12 }}>
       {title && <p style={{ fontWeight: 600, marginBottom: 8 }}>{title}</p>}
       <div style={{ overflowX: "auto" }}>
-        <table style={{ width: "100%", tableLayout: "fixed", borderCollapse: "collapse", fontSize: 12 }}>
+        <table
+style={{
+width:"100%",
+minWidth:600,
+tableLayout:"fixed",
+borderCollapse:"collapse",
+fontSize:12
+}}
+>
           <thead>
             <tr style={{ background: "#f8fafc", borderBottom: "1px solid #e2e8f0" }}>
               {columns.map((col, i) => (

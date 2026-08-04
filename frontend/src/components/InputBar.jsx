@@ -3,6 +3,7 @@ import { useState, useRef } from "react";
 export default function InputBar({ onSend, disabled }) {
   const [text, setText] = useState("");
   const inputRef = useRef(null);
+  const isMobile = window.innerWidth <= 768;
 
   const handleSend = () => {
   if (text.trim() && !disabled) {
@@ -18,7 +19,7 @@ export default function InputBar({ onSend, disabled }) {
   return (
    <div
   style={{
-    padding: "14px 18px",
+    padding: isMobile ? "10px" : "14px 18px",
     borderTop: "1px solid #e2e8f0",
     background: "#ffffff",
     display: "flex",
@@ -29,8 +30,8 @@ export default function InputBar({ onSend, disabled }) {
   {/* Attachment Button */}
   <button
     style={{
-      width: 42,
-      height: 42,
+      width: isMobile ? 36 : 42,
+      height: isMobile ? 36 : 42,
       borderRadius: "50%",
       border: "1px solid #d1d5db",
       background: "#f8fafc",
@@ -53,11 +54,11 @@ export default function InputBar({ onSend, disabled }) {
     disabled={disabled}
     style={{
       flex: 1,
-      padding: "12px 18px",
+      padding: isMobile ? "10px 14px" : "12px 18px",
       border: "1px solid #cbd5e1",
       borderRadius: 30,
       outline: "none",
-      fontSize: 15,
+      fontSize: isMobile ? 14 : 15,
       background: "#f8fafc",
       transition: "0.2s",
       color: "#080808",
@@ -67,8 +68,8 @@ export default function InputBar({ onSend, disabled }) {
   {/* Voice Button */}
   <button
     style={{
-      width: 42,
-      height: 42,
+      width: isMobile ? 36 : 42,
+      height: isMobile ? 36 : 42,
       borderRadius: "50%",
       border: "1px solid #d1d5db",
       background: "#f8fafc",
@@ -89,7 +90,7 @@ export default function InputBar({ onSend, disabled }) {
       background: "linear-gradient(135deg,#667eea,#764ba2)",
       border: "none",
       borderRadius: 30,
-      padding: "12px 24px",
+      padding: isMobile ? "10px 16px" : "12px 24px",
       color: "#fff",
       fontWeight: 600,
       cursor: "pointer",
@@ -97,7 +98,7 @@ export default function InputBar({ onSend, disabled }) {
       boxShadow: "0 3px 8px rgba(102,126,234,.35)",
     }}
   >
-    Send
+    {isMobile ? "➤" : "Send"}
   </button>
 </div>
   );

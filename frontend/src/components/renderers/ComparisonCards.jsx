@@ -6,6 +6,7 @@ export default function ComparisonCards({ data, lang }) {
   // Pre-fetch all possible label translations at top level (hooks rules compliance)
   const labelFees   = useLabel(lang, "table_fees");
   const labelIntake = useLabel(lang, "table_intake");
+  const isMobile = window.innerWidth <= 768;
 
   if (!items || !Array.isArray(items)) return null;
 
@@ -20,7 +21,11 @@ export default function ComparisonCards({ data, lang }) {
   return (
     <div style={{ background: "#f8fafc", borderRadius: 16, padding: 12 }}>
       {title && <p style={{ fontWeight: 600, marginBottom: 8 }}>{title}</p>}
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 12 }}>
+      <div style={{ display:"grid",
+gridTemplateColumns:
+isMobile
+?"repeat(2,1fr)"
+:"repeat(auto-fit,minmax(150px,1fr))", flexWrap: "wrap", gap: 12 }}>
         {items.map((item, i) => {
           if (!item) return null;
           const displayLabel = resolveLabel(item);

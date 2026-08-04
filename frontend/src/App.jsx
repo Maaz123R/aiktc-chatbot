@@ -15,7 +15,7 @@ export default function App() {
     display: "flex",
     justifyContent: "center",
     alignItems: "stretch",
-    padding: 0,
+    padding: window.innerWidth < 768 ? 0 : 20,
     overflow: "hidden",
     background: "#eef2f7",
     minHeight: 0,
