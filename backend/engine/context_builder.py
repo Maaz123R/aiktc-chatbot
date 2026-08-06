@@ -55,29 +55,7 @@ def build_context_note(current_message: str, history: list[dict]) -> str:
         "closing percentile",
     ]
 
-    if any(word in text for word in cutoff_words) and departments:
-        from .verdict import get_cutoff_history
-
-        rows = get_cutoff_history(departments[0])
-
-        if rows:
-            table = "\n".join(
-                f"{r['year']} | {r['category']} | {r['cutoff']}"
-                for r in rows
-            )
-
-            return f"""
-The user is asking for historical cutoff details.
-
-Department:
-{departments[0]}
-
-Use ONLY these cutoff rows.
-
-{table}
-
-Respond using show_table.
-"""
+    
 
     # ── Type D: No number found ────────────────────────────────────
     if number is None:
