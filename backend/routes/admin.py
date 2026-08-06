@@ -38,7 +38,6 @@ from llm.gemini_client import call_gemini
 from engine.aliases import DEPARTMENT_ALIASES, CATEGORY_ALIASES
 
 from config import settings
-from engine.verdict import reload_cutoffs
 from kb.loader import load_and_merge_kb
 from kb.markdown import kb_to_markdown
 from logger.query_logger import get_negative_feedback, get_unresolved_queries
@@ -298,31 +297,24 @@ async def upload_cutoffs(
     file_path = _resolve_kb_path() / "cutoffs.csv"
     file_path.write_text(decoded, encoding="utf-8")
     logger.info(f"Cutoffs CSV uploaded | size={len(content)} bytes")
-
-    # Reload cutoff cache
-    reload_cutoffs(file_path)
-
     return {
-        "status" : "ok",
-        "message": "cutoffs.csv updated and cache reloaded successfully",
-        "size"   : len(content),
+        "status": "ok",
+        "message": "cutoffs.csv uploaded successfully",
     }
-
-
-@router.post(
-    "/reload-kb",
-    summary     = "Reload knowledge base from disk",
-    description = "Force reload KB markdown without restarting the server. Requires Bearer token.",
-)
+@router.post("/reload-kb")
 async def reload_kb(
     request: Request,
-    _      : bool = Depends(verify_bearer),
+    _: bool = Depends(verify_bearer),
 ):
-    """Reload the KB markdown and cutoff cache from disk."""
+    """Reload the KB markdown from disk."""
+
     _reload_kb_markdown(request)
-    reload_cutoffs(_resolve_kb_path() / "cutoffs.csv")
-    logger.info("Admin triggered full KB reload")
-    return {"status": "ok", "message": "Knowledge base and cutoffs reloaded"}
+    logger.info("Admin triggered KB reload")
+
+    return {
+        "status": "ok",
+        "message": "Knowledge base reloaded"
+    }
 
 
 # ==============================================================================
@@ -382,8 +374,7 @@ async def write_kb_file(req: KBFileWriteRequest, request: Request, _: bool = Dep
         
         # Trigger reload if successful
         _reload_kb_markdown(request)
-        if req.path.endswith("cutoffs.csv"):
-            reload_cutoffs(_resolve_kb_path() / "cutoffs.csv")
+       
             
         return {"status": "ok", "message": f"{req.path} saved successfully."}
         
@@ -413,8 +404,7 @@ async def delete_kb_file(req: KBDeleteRequest, request: Request, _: bool = Depen
         kb_editor.safe_delete(req.path)
         # Trigger reload if successful
         _reload_kb_markdown(request)
-        if req.path.endswith("cutoffs.csv"):
-            reload_cutoffs(_resolve_kb_path() / "cutoffs.csv")
+      
             
         return {"status": "ok", "message": f"{req.path} deleted successfully."}
     except FileNotFoundError as exc:
@@ -480,8 +470,7 @@ async def upload_kb_file(
         
         # Trigger reload
         _reload_kb_markdown(request)
-        if target_path.endswith("cutoffs.csv"):
-            reload_cutoffs(_resolve_kb_path() / "cutoffs.csv")
+        
             
         return {"status": "ok", "message": f"{target_path} uploaded successfully."}
         
