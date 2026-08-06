@@ -1,0 +1,30 @@
+{
+  "SC": {
+    "name": "Scheduled Caste",
+    "benefits": [
+      "Tuition Fee Waiver",
+      "Freeship",
+      "Maintenance Allowance"
+    ],
+    "requiredDocuments": [
+      "Required Documents"
+    ],
+    "eligibility": [
+      "Eligibility"
+    ]
+  },
+  "ST": {
+    "name": "Scheduled Tribe",
+    "benefits": [
+      "Tuition Fee Waiver",
+      "Freeship",
+      "Maintenance Allowance"
+    ],
+    "requiredDocuments": [
+      "Required Documents"
+    ],
+    "eligibility": [
+      "Eligibility"
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "Minority Scholarship",
+  "eligible_categories": [
+    "Muslim",
+    "Christian",
+    "Sikh",
+    "Buddhist",
+    "Parsi",
+    "Jain"
+  ],
+  "income_limit": "...",
+  "benefits": "...",
+  "renewal": "...",
+  "website": "..."
+}
