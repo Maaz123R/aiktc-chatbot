@@ -105,7 +105,7 @@ image_url MUST be included.
 
 15. FUNCTION CHOICE (mapped to question types):
 
-  • Admission chance / cutoff / CAP merit list→ show_text
+  • Admission chance / cutoff / CAP merit list→ show_link
 
   • Fees→ show_links (official AIKTC fee page link)
   • Scholarship application or admission process → show_steps.
