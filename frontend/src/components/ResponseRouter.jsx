@@ -8,6 +8,7 @@ import ComparisonCards from "./renderers/ComparisonCards";
 import ListCards from "./renderers/ListCards";
 import StepFlow from "./renderers/StepFlow";
 import ContactCard from "./renderers/ContactCard";
+import LinksResponse from "./renderers/LinksResponse";
 
 const RENDERERS = {
   text: TextBubble,
@@ -25,12 +26,11 @@ const RENDERERS = {
 export default function ResponseRouter({ functionName, args, lang }) {
   const key = functionName?.replace(/^show_/, "") || "text";
   const Renderer = RENDERERS[key] || TextBubble;
-  console.log("ResponseRouter:", {
-  functionName,
-  key,
-  Renderer: Renderer?.name,
-  args,
-});
+  console.log("ResponseRouter:", { functionName, key, Renderer: Renderer?.name, args });
 
+  // handle legacy/show_links functionName
+  if (functionName === "show_links" || key === "links") {
+    return <LinksResponse data={args} />;
+  }
   return <Renderer data={args} lang={lang} />;
 }

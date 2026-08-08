@@ -21,6 +21,31 @@ FUNCTION_DEFINITIONS = [
         }
     },
     {
+        "name": "show_links",
+        "description": (
+            "Display a set of official links relevant to AIKTC users."
+        ),
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "title": {"type": "string"},
+                "links": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "title": {"type": "string"},
+                            "url": {"type": "string"},
+                            "icon": {"type": "string"}
+                        },
+                        "required": ["title", "url", "icon"]
+                    }
+                }
+            },
+            "required": ["title", "links"]
+        }
+    },
+    {
         "name": "show_table",
         "description": (
             "Display a structured data table. Use for: historical cutoff data by year, "
