@@ -20,7 +20,7 @@ If a user asks about admission cutoffs, closing ranks, CAP merit lists, or admis
 • Explain that official cutoffs are released every year by the Maharashtra CET Cell after CAP rounds.
 • Direct the student to:
   - https://cetcell.mahacet.org/
-  - https://fe2026.mahacet.org/StaticPages/HomePage
+  - https://[current-year].mahacet.org/StaticPages/HomePage 
   - https://aiktc.ac.in/admissions/
 • Use Cutoff→ show_links.
 
