@@ -107,7 +107,7 @@ image_url MUST be included.
 
   • Admission chance / cutoff / CAP merit list→ show_link
 
-  • Fees→ show_links (official AIKTC fee page link)
+  • Fees→ show_links (https://aiktc.ac.in/aiktc-fees-structure/)
   • Scholarship application or admission process → show_steps.
 
   • Scholarship types → show_list.Admission process
@@ -121,7 +121,7 @@ Scholarship types
 
 
 Do NOT answer in plain text.
-   - "Fee", "fees", "cost", "fee structure"→ show_links containing the official AIKTC Fee Structure page.
+   - "Fee", "fees", "cost", "fee structure"→ show_links https://aiktc.ac.in/aiktc-fees-structure/
    - "Faculty", "teachers", "HOD", "who is the director/principal" → show_faculty_grid or show_media_card
    - "Lab", "laboratory", "workshop", "facilities", "infrastructure", "canteen", "library", "sports", "gym" → show_list
    - "Hostel", "mess", "accommodation" → show_text (include all available details)
