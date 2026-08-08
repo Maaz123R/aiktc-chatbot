@@ -1,4 +1,7 @@
 export default function LinkCard({ title, url, icon = "🌐" }) {
+  const isTablerIcon = typeof icon === "string" && icon.startsWith("ti-");
+  const hasIcon = icon && icon !== "ti-currency-dollar";
+
   return (
     <a
       href={url}
@@ -26,7 +29,11 @@ export default function LinkCard({ title, url, icon = "🌐" }) {
       }}
     >
       <span style={{ display: "flex", alignItems: "center", gap: 10 }}>
-        <span style={{ fontSize: 20 }}>{icon}</span>
+        {hasIcon && (
+          <span style={{ fontSize: 20 }}>
+            {isTablerIcon ? <i className={`ti ${icon}`} aria-hidden="true" /> : icon}
+          </span>
+        )}
         <strong>{title}</strong>
       </span>
 
