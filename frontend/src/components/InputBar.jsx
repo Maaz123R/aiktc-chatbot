@@ -32,21 +32,7 @@ useEffect(() => {
   }}
 >
   {/* Attachment Button */}
-  <button
-    style={{
-      width: isMobile ? 36 : 42,
-      height: isMobile ? 36 : 42,
-      borderRadius: "50%",
-      border: "1px solid #d1d5db",
-      background: "#f8fafc",
-      cursor: "pointer",
-      fontSize: isMobile ? 16 : 18,
-      transition: "0.2s",
-    }}
-    title="Attach File"
-  >
-    📎
-  </button>
+ 
 
   {/* Input */}
   <input
@@ -71,22 +57,7 @@ useEffect(() => {
   />
 
   {/* Voice Button */}
-  <button
-    style={{
-      width: isMobile ? 36 : 42,
-      height: isMobile ? 36 : 42,
-      fontSize: isMobile ? 16 : 18,
-      borderRadius: "50%",
-      border: "1px solid #d1d5db",
-      background: "#f8fafc",
-      cursor: "pointer",
-     
-      transition: "0.2s",
-    }}
-    title="Voice Input"
-  >
-    🎤
-  </button>
+ 
 
   {/* Send Button */}
   <button
